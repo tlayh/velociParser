@@ -6,12 +6,39 @@ import (
 	"log"
 	"io/ioutil"
 	"strings"
+	"gopkg.in/yaml.v2"
 )
 
+type Conf struct {
+	User struct {
+		Name string `yaml:"name"`
+	}
+	Scene struct {
+		Track string `yaml:"track"`
+		Url string `yaml:"url"`
+	}
+}
+
 func main() {
-	river2BankRun := "https://www.velocidrone.com/leaderboard/23/117/1.11"
-	bodyContent := readLeaderBoard(river2BankRun)
-	parseLeaderBoardResponse(bodyContent)
+	initConfig()
+	// river2BankRun := "https://www.velocidrone.com/leaderboard/23/117/1.11"
+	// bodyContent := readLeaderBoard(river2BankRun)
+	// parseLeaderBoardResponse(bodyContent)
+}
+
+func initConfig() {
+	var config Conf
+
+	yamlFile, err := ioutil.ReadFile("config.yaml")
+	if err != nil {
+		log.Printf("yamlFile.Get err   #%v ", err)
+	}
+
+	err = yaml.Unmarshal(yamlFile, &config)
+	if err != nil {
+		log.Fatalf("Unmarshal: %v", err)
+	}
+	fmt.Println(config)
 }
 
 func parseLeaderBoardResponse(bodyContent string) {
