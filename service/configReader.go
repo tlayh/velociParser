@@ -7,7 +7,7 @@ import (
 )
 
 type Conf struct {
-	User struct {
+	Users struct {
 		Name string `yaml:"name"`
 	}
 	Scene struct {

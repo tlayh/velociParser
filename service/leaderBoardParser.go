@@ -36,7 +36,6 @@ func findTrLine(index int, cleanString string) (string) {
 	}
 	// find end of tr line
 	for j := startIndex; j < startIndex+700; j++ {
-		fmt.Println(j)
 		if cleanString[j:j+5] == "</tr>" {
 			endIndex = j+5
 			fmt.Println("End of Line found")
