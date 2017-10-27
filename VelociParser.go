@@ -9,6 +9,6 @@ func main() {
 	config := service.ReadConfig()
 	fmt.Println(config)
 	bodyContent := service.ReadLeaderBoard(config.Scene.Url)
-	service.ParseLeaderBoardResponse(bodyContent, config.Users.Name)
+	service.ParseLeaderBoardResponse(bodyContent, config.Users)
 }
 

@@ -8,15 +8,18 @@ import (
 	"io/ioutil"
 )
 
-func ParseLeaderBoardResponse(bodyContent string, username string) {
+func ParseLeaderBoardResponse(bodyContent string, usernames []string) {
 	cleanString := strings.Replace(bodyContent, " ", "", -1)
 	// fmt.Print(cleanString)
-	index := strings.LastIndex(cleanString, username)
-	if index != -1 {
-		line := findTrLine(index, cleanString)
-		fmt.Println(line)
-	} else {
-		fmt.Println("%v not found", username)
+	for iteratorIndex, username := range usernames {
+		fmt.Println(iteratorIndex)
+		index := strings.LastIndex(cleanString, username)
+		if index != -1 {
+			line := findTrLine(index, cleanString)
+			fmt.Println(line)
+		} else {
+			fmt.Println("%v not found", username)
+		}
 	}
 }
 

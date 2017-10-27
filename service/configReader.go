@@ -7,9 +7,7 @@ import (
 )
 
 type Conf struct {
-	Users struct {
-		Name string `yaml:"name"`
-	}
+	Users []string
 	Scene struct {
 		Track string `yaml:"track"`
 		Url string `yaml:"url"`
