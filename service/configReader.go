@@ -7,11 +7,13 @@ import (
 )
 
 type Conf struct {
-	Users []string
-	Scene struct {
-		Track string `yaml:"track"`
-		Url string `yaml:"url"`
-	}
+	Users []string `yaml:",flow"`
+	Scenes []Scene
+}
+
+type Scene struct {
+	Track string `yaml:"track"`
+	Url string `yaml:"url"`
 }
 
 func ReadConfig() Conf {

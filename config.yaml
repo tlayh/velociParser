@@ -1,7 +1,10 @@
-users:
-  - "TALY",
-  - "Syzygy"
+users: [
+  "TALY",
+  "Darkstyle"
+]
 
-scene:
-  track: "River2 - Bank Run"
-  url: "https://www.velocidrone.com/leaderboard/23/117/1.11"
+scenes:
+  - track: "River2 - Bank Run"
+    url: "https://www.velocidrone.com/leaderboard/23/117/1.11"
+  - track: "Subway - Upstairs Downstairs"
+    url: "https://www.velocidrone.com/leaderboard/15/36/1.11"

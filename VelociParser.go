@@ -8,7 +8,7 @@ import (
 func main() {
 	config := service.ReadConfig()
 	fmt.Println(config)
-	bodyContent := service.ReadLeaderBoard(config.Scene.Url)
-	service.ParseLeaderBoardResponse(bodyContent, config.Users)
+	// bodyContent := service.ReadLeaderBoard(config.Scenes)
+	// service.ParseLeaderBoardResponse(bodyContent, config.Users)
 }
 

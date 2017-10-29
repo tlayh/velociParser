@@ -1,5 +1,14 @@
 # Small parser to compare leaderboard times from specific tracks and users
 
+## ToDo
+
+1. Find own username and time for track
+2. Find friends username and time for track
+    1. Compare to own time
+3. Find next ahead of own username
+    1. Show difference to get the next better place
+4. Find first for track and show difference to own position
+
 ## Configuration
 
 Users: Array of users that should be compared
