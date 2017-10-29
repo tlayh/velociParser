@@ -1,6 +1,6 @@
 # Small parser to compare leaderboard times from specific tracks and users
 
-## ToDo
+## Goal
 
 1. Find own username and time for track
 2. Find friends username and time for track
@@ -13,9 +13,3 @@
 
 Users: Array of users that should be compared
 Scene: Array of Scenes and Tracks to be compared
-
-## Lineparsing
-
-1. Find username
-2. get previous tr and read line
-3. first td = rank, second td = time, third td = name

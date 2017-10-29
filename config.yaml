@@ -1,10 +1,35 @@
 users: [
   "TALY",
-  "Darkstyle"
+  "WEEH"
 ]
 
 scenes:
   - track: "River2 - Bank Run"
     url: "https://www.velocidrone.com/leaderboard/23/117/1.11"
+  - track: "River2 - Castle Shake Down"
+    url: "https://www.velocidrone.com/leaderboard/23/118/1.11"
+  - track: "River2 - HDR-CastleBlack-FIRE"
+    url: "https://www.velocidrone.com/leaderboard/23/140/1.11"
+  - track: "River2 - HDR-WhiteCastle-SP"
+    url: "https://www.velocidrone.com/leaderboard/23/164/1.11"
+  - track: "River2 - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/23/112/1.11"
+  - track: "River2 - RiverSlalom"
+    url: "https://www.velocidrone.com/leaderboard/23/119/1.11"
+  - track: "River2 - SFPV Castle Run V2"
+    url: "https://www.velocidrone.com/leaderboard/23/155/1.11"
+  - track: "River2 - SFPV Dive"
+    url: "https://www.velocidrone.com/leaderboard/23/156/1.11"
+  - track: "River2 - SFPV Game of Drones"
+    url: "https://www.velocidrone.com/leaderboard/23/132/1.11"
+  - track: "River2 - SFPV H20Fire"
+    url: "https://www.velocidrone.com/leaderboard/23/158/1.11"
+  - track: "River2 - SFPV Lake House"
+    url: "https://www.velocidrone.com/leaderboard/23/159/1.11"
+  - track: "River2 - SFPV Matterhorn"
+    url: "https://www.velocidrone.com/leaderboard/23/160/1.11"
+  - track: "River2 - SFPV Torch Run V2"
+    url: "https://www.velocidrone.com/leaderboard/23/162/1.11"
+
   - track: "Subway - Upstairs Downstairs"
     url: "https://www.velocidrone.com/leaderboard/15/36/1.11"

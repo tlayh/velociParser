@@ -6,21 +6,70 @@ import (
 	"net/http"
 	"log"
 	"io/ioutil"
+	"golang.org/x/net/html"
 )
 
 func ParseLeaderBoardResponse(bodyContent string, usernames []string) {
 	cleanString := strings.Replace(bodyContent, " ", "", -1)
 	// fmt.Print(cleanString)
-	for iteratorIndex, username := range usernames {
-		fmt.Println(iteratorIndex)
+	for _, username := range usernames {
 		index := strings.LastIndex(cleanString, username)
 		if index != -1 {
 			line := findTrLine(index, cleanString)
-			fmt.Println(line)
+			parseLineDataIntoModel(line)
 		} else {
-			fmt.Println("%v not found", username)
+			fmt.Println("Player ", username, " not found!")
 		}
 	}
+}
+
+/*
+here we have a full tr line containing all data including td elements
+first td = rank
+second td = time
+third td = name
+ */
+func parseLineDataIntoModel(line string) {
+
+	rLine := strings.NewReader(line)
+	nodes := html.NewTokenizer(rLine)
+
+	elementCounter := 0
+	for {
+		tt := nodes.Next()
+		switch {
+			case tt == html.ErrorToken:
+				return
+			case tt == html.StartTagToken:
+				t := nodes.Token()
+
+				// opening td found
+				if t.Data == "td" {
+					tt = nodes.Next()
+					if tt == html.TextToken{
+						i := nodes.Token()
+						switch {
+							case elementCounter == 0:
+								fmt.Print("Rank: ", i.Data)
+								elementCounter++
+							case elementCounter == 1:
+								fmt.Print(" Time: ", i.Data)
+								elementCounter++
+							case elementCounter == 2:
+								fmt.Print(" Name: ", strings.TrimSpace(i.Data))
+								tt = nodes.Next()
+								elementCounter = 0
+								fmt.Println()
+								return
+						}
+					}
+				}
+		}
+	}
+
+
+	// re := regexp.MustCompile(`\\$\\<(.*?)\\>`)
+	// fmt.Printf("%q\n", re.FindStringSubmatch(lineWithoutTr))
 }
 
 func findTrLine(index int, cleanString string) (string) {
@@ -32,8 +81,6 @@ func findTrLine(index int, cleanString string) (string) {
 	for i := index; i > 0; i-- {
 		if cleanString[i:i+4] == "<tr>" {
 			startIndex = i
-			fmt.Println("Beginning of Line found")
-			fmt.Println(startIndex)
 			break
 		}
 	}
@@ -41,8 +88,6 @@ func findTrLine(index int, cleanString string) (string) {
 	for j := startIndex; j < startIndex+700; j++ {
 		if cleanString[j:j+5] == "</tr>" {
 			endIndex = j+5
-			fmt.Println("End of Line found")
-			fmt.Println(endIndex)
 			break
 		}
 	}

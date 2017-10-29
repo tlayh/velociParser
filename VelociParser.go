@@ -1,14 +1,19 @@
 package main
 
 import (
-	"fmt"
 	"./service"
+	"fmt"
 )
 
 func main() {
 	config := service.ReadConfig()
-	fmt.Println(config)
-	// bodyContent := service.ReadLeaderBoard(config.Scenes)
-	// service.ParseLeaderBoardResponse(bodyContent, config.Users)
+	// iterate over defined scenes and trackes
+	for _, scene := range config.Scenes {
+		fmt.Println("Scanning Board: ", scene.Track)
+		bodyContent := service.ReadLeaderBoard(scene.Url)
+		service.ParseLeaderBoardResponse(bodyContent, config.Users)
+		fmt.Println("---------------------------")
+	}
+
 }
 
