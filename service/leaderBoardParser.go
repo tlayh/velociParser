@@ -7,6 +7,8 @@ import (
 	"log"
 	"io/ioutil"
 	"golang.org/x/net/html"
+	"github.com/fatih/color"
+	"strconv"
 )
 
 func ParseLeaderBoardResponse(bodyContent string, usernames []string) {
@@ -18,7 +20,8 @@ func ParseLeaderBoardResponse(bodyContent string, usernames []string) {
 			line := findTrLine(index, cleanString)
 			parseLineDataIntoModel(line)
 		} else {
-			fmt.Println("Player ", username, " not found!")
+			c := color.New(color.FgRed)
+			c.Println("Player ", username, " not found!")
 		}
 	}
 }
@@ -50,7 +53,12 @@ func parseLineDataIntoModel(line string) {
 						i := nodes.Token()
 						switch {
 							case elementCounter == 0:
-								fmt.Print("Rank: ", i.Data)
+								rank, _ := strconv.ParseInt(i.Data, 10, 64)
+								c := color.New(color.FgGreen)
+								if rank > 50 {
+									c = color.New(color.FgRed)
+								}
+								c.Print("Rank: ", i.Data)
 								elementCounter++
 							case elementCounter == 1:
 								fmt.Print(" Time: ", i.Data)
