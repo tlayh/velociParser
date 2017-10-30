@@ -13,7 +13,7 @@ func main() {
 	// otherwise parse all configured boards
 
 	parseFilter := "false"
-	if os.Args[1] != "" {
+	if len(os.Args) > 1 {
 		parseFilter = os.Args[1]
 	}
 
