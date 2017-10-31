@@ -4,6 +4,9 @@ users: [
 ]
 
 scenes:
+#
+# RIVER2
+#
   - track: "River2 - Bank Run"
     url: "https://www.velocidrone.com/leaderboard/23/117/1.11"
   - track: "River2 - Castle Shake Down"
@@ -31,6 +34,9 @@ scenes:
   - track: "River2 - SFPV Torch Run V2"
     url: "https://www.velocidrone.com/leaderboard/23/162/1.11"
 
+#
+# SPORTSHALL
+#
   - track: "SportsHall - Mini Rush"
     url: "https://www.velocidrone.com/leaderboard/21/72/1.11"
   - track: "SportsHall - MultiGP Round 2 FNL"
@@ -40,7 +46,9 @@ scenes:
   - track: "SportsHall - School Track"
     url: "https://www.velocidrone.com/leaderboard/21/58/1.11"
 
-
+#
+# SUBWAY
+#
   - track: "Subway - Upstairs Downstairs"
     url: "https://www.velocidrone.com/leaderboard/15/36/1.11"
   - track: "Subway - All Stations"
@@ -54,6 +62,9 @@ scenes:
   - track: "Subway - Train Weave"
     url: "https://www.velocidrone.com/leaderboard/15/38/1.11"
 
+#
+# HANGAR
+#
   - track: "Hangar - Pylons"
     url: "https://www.velocidrone.com/leaderboard/3/20/1.11"
   - track: "Hangar - BoxCars"
@@ -61,6 +72,9 @@ scenes:
   - track: "Hangar - Porco Stadium"
     url: "https://www.velocidrone.com/leaderboard/3/49/1.11"
 
+#
+# INDUSTRIAL WASTELAND
+#
   - track: "Industrial Wasteland - Industrial Flag Race"
     url: "https://www.velocidrone.com/leaderboard/7/61/1.11"
   - track: "Industrial Wasteland - Porco Apocalypse"
@@ -76,6 +90,9 @@ scenes:
   - track: "Industrial Wasteland - Tower Drop"
     url: "https://www.velocidrone.com/leaderboard/7/31/1.11"
 
+#
+# FOOTBALL STADIUM
+#
   - track: "Football Stadium - Bexbach"
     url: "https://www.velocidrone.com/leaderboard/8/46/1.11"
   - track: "Football Stadium - Block Madness"
@@ -124,3 +141,53 @@ scenes:
     url: "https://www.velocidrone.com/leaderboard/8/19/1.11"
   - track: "Football Stadium - Split-S Reverse"
     url: "https://www.velocidrone.com/leaderboard/8/69/1.11"
+
+#
+# COUNTRYSIDE
+#
+  - track: "Countryside - 3D Championship 2016"
+    url: "https://www.velocidrone.com/leaderboard/12/26/1.11"
+  - track: "Countryside - Collision"
+    url: "https://www.velocidrone.com/leaderboard/12/2/1.11"
+  - track: "Countryside - Copse"
+    url: "https://www.velocidrone.com/leaderboard/12/11/1.11"
+  - track: "Countryside - EQ Field Run"
+    url: "https://www.velocidrone.com/leaderboard/12/152/1.11"
+  - track: "Countryside - FPV Dutchman Confusion"
+    url: "https://www.velocidrone.com/leaderboard/12/76/1.11"
+  - track: "Countryside - Gemfan"
+    url: "https://www.velocidrone.com/leaderboard/12/1/1.11"
+  - track: "Countryside - HDR Quickling"
+    url: "https://www.velocidrone.com/leaderboard/12/83/1.11"
+  - track: "Countryside - HDR- Fast Track 1.7"
+    url: "https://www.velocidrone.com/leaderboard/12/77/1.11"
+  - track: "Countryside - HDR-Trainer-LEVEL1"
+    url: "https://www.velocidrone.com/leaderboard/12/142/1.11"
+  - track: "Countryside - HDR-Trainer-LEVEL2"
+    url: "https://www.velocidrone.com/leaderboard/12/143/1.11"
+  - track: "Countryside - HDR-Trainer-LEVEL3"
+    url: "https://www.velocidrone.com/leaderboard/12/144/1.11"
+  - track: "Countryside - HDR-Trainer-LEVEL4"
+    url: "https://www.velocidrone.com/leaderboard/12/145/1.11"
+  - track: "Countryside - HDR-Trainer-LEVEL5"
+    url: "https://www.velocidrone.com/leaderboard/12/146/1.11"
+  - track: "Countryside - Lebach Final Event"
+    url: "https://www.velocidrone.com/leaderboard/12/47/1.11"
+  - track: "Countryside - London"
+    url: "https://www.velocidrone.com/leaderboard/12/8/1.11"
+  - track: "Countryside - MimaRaza GP"
+    url: "https://www.velocidrone.com/leaderboard/12/66/1.11"
+  - track: "Countryside - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/12/13/1.11"
+  - track: "Countryside - Race MRCFK Austria"
+    url: "https://www.velocidrone.com/leaderboard/12/64/1.11"
+  - track: "Countryside - SFPV Propsman"
+    url: "https://www.velocidrone.com/leaderboard/12/161/1.11"
+  - track: "Countryside - SFPV VRL 2"
+    url: "https://www.velocidrone.com/leaderboard/12/122/1.11"
+  - track: "Countryside - Stade"
+    url: "https://www.velocidrone.com/leaderboard/12/70/1.11"
+  - track: "Countryside - Traditional"
+    url: "https://www.velocidrone.com/leaderboard/12/14/1.11"
+  - track: "Countryside - VV-Tradringar"
+    url: "https://www.velocidrone.com/leaderboard/12/50/1.11"
