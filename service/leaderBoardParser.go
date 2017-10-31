@@ -17,7 +17,10 @@ func ParseLeaderBoardResponse(bodyContent string, usernames []string) {
 	for _, username := range usernames {
 		index := strings.LastIndex(cleanString, username)
 		if index != -1 {
-			line := findTrLine(index, cleanString)
+			line, startIndex := findTrLine(index, cleanString)
+			// go back with the start index to find the player before the search
+			lineBefore, startIndex := findTrLine(startIndex-100, cleanString)
+			parseLineDataIntoModel(lineBefore)
 			parseLineDataIntoModel(line)
 		} else {
 			c := color.New(color.FgRed)
@@ -80,7 +83,7 @@ func parseLineDataIntoModel(line string) {
 	// fmt.Printf("%q\n", re.FindStringSubmatch(lineWithoutTr))
 }
 
-func findTrLine(index int, cleanString string) (string) {
+func findTrLine(index int, cleanString string) (string, int) {
 
 	var startIndex = 0
 	var endIndex = 0
@@ -101,9 +104,9 @@ func findTrLine(index int, cleanString string) (string) {
 	}
 
 	if startIndex != 0 && endIndex != 0 {
-		return cleanString[startIndex:endIndex]
+		return cleanString[startIndex:endIndex], startIndex
 	}
-	return ""
+	return "", 0
 }
 
 func ReadLeaderBoard(url string) (string) {
