@@ -23,3 +23,4 @@ Scene: Array of Scenes and Tracks to be compared
 - Industrial Wasteland
 - Football Stadium
 - Countryside
+- Night Factory
