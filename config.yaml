@@ -209,3 +209,109 @@ scenes:
     url: "https://www.velocidrone.com/leaderboard/13/27/1.11"
   - track: "Night Factory - SFPV VRL 9"
     url: "https://www.velocidrone.com/leaderboard/13/163/1.11"
+
+#
+# Karting Track
+#
+  - track: "Karting Track - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/14/41/1.11"
+  - track: "Karting Track - RaceDrones Classic"
+    url: "https://www.velocidrone.com/leaderboard/14/34/1.11"
+  - track: "Karting Track - Track Lap"
+    url: "https://www.velocidrone.com/leaderboard/14/40/1.11"
+
+#
+# Blank Canvas Day
+#
+  - track: "Blank Canvas Day - HDR-Apples-Orchards1.9.3"
+    url: "https://www.velocidrone.com/leaderboard/16/98/1.11"
+  - track: "Blank Canvas Day - HDR-Infinity1.9.8"
+    url: "https://www.velocidrone.com/leaderboard/16/108/1.11"
+  - track: "Blank Canvas Day - HDR-SnapBack1.9.5"
+    url: "https://www.velocidrone.com/leaderboard/16/99/1.11"
+  - track: "Blank Canvas Day - HDR-Storage-A-GoGo1.9.6"
+    url: "https://www.velocidrone.com/leaderboard/16/107/1.11"
+  - track: "Blank Canvas Day - HDR-Woodie1.9.6"
+    url: "https://www.velocidrone.com/leaderboard/16/100/1.11"
+  - track: "Blank Canvas Day - IDN-2017-Mod"
+    url: "https://www.velocidrone.com/leaderboard/16/120/1.11"
+  - track: "Blank Canvas Day - Ireland - IDN 2016"
+    url: "https://www.velocidrone.com/leaderboard/16/60/1.11"
+  - track: "Blank Canvas Day - MiniRock"
+    url: "https://www.velocidrone.com/leaderboard/16/116/1.11"
+  - track: "Blank Canvas Day - Nite Racing Sessions 2"
+    url: "https://www.velocidrone.com/leaderboard/16/82/1.11"
+  - track: "Blank Canvas Day - Official Track Seoul"
+    url: "https://www.velocidrone.com/leaderboard/16/109/1.11"
+  - track: "Blank Canvas Day - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/16/42/1.11"
+  - track: "Blank Canvas Day - Quadcopters Track"
+    url: "https://www.velocidrone.com/leaderboard/16/96/1.11"
+  - track: "Blank Canvas Day - SFPV VRL 3"
+    url: "https://www.velocidrone.com/leaderboard/16/123/1.11"
+  - track: "Blank Canvas Day - Swiss Drone Nationals 2016"
+    url: "https://www.velocidrone.com/leaderboard/16/65/1.11"
+  - track: "Blank Canvas Day - TOG RHINO"
+    url: "https://www.velocidrone.com/leaderboard/16/149/1.11"
+  - track: "Blank Canvas Day - Weston Park 2017"
+    url: "https://www.velocidrone.com/leaderboard/16/110/1.11"
+
+#
+# Blank Canvas Night
+#
+  - track: "Blank Canvas Night - FPV Dutchman Neon Flash"
+    url: "https://www.velocidrone.com/leaderboard/17/74/1.11"
+  - track: "Blank Canvas Night - Neon Cage"
+    url: "https://www.velocidrone.com/leaderboard/17/51/1.11"
+  - track: "Blank Canvas Night - Night Train"
+    url: "https://www.velocidrone.com/leaderboard/17/62/1.11"
+  - track: "Blank Canvas Night - Proximity"
+    url: "https://www.velocidrone.com/leaderboard/17/81/1.11"
+  - track: "Blank Canvas Night - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/17/43/1.11"
+
+#
+# Birmingham NEC
+#
+  - track: "Birmingham NEC - Barnstorm"
+    url: "https://www.velocidrone.com/leaderboard/18/73/1.11"
+  - track: "Birmingham NEC - iSeries 1"
+    url: "https://www.velocidrone.com/leaderboard/18/55/1.11"
+  - track: "Birmingham NEC - iSeries 2"
+    url: "https://www.velocidrone.com/leaderboard/18/44/1.11"
+  - track: "Birmingham NEC - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/18/67/1.11"
+
+#
+# Warehouse
+#
+  - track: "Warehouse - Canon"
+    url: "https://www.velocidrone.com/leaderboard/19/59/1.11"
+  - track: "Warehouse - FPVgan - Jam Factory"
+    url: "https://www.velocidrone.com/leaderboard/19/153/1.11"
+  - track: "Warehouse - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/19/52/1.11"
+  - track: "Warehouse - Warehouse Slalom"
+    url: "https://www.velocidrone.com/leaderboard/19/56/1.11"
+
+#
+# Underground Carpark
+#
+  - track: "Underground Carpark - Rush Hour"
+    url: "https://www.velocidrone.com/leaderboard/20/71/1.11"
+  - track: "Underground Carpark - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/20/53/1.11"
+  - track: "Underground Carpark - Twin Floors"
+    url: "https://www.velocidrone.com/leaderboard/20/54/1.11"
+
+#
+# Coastel
+#
+
+#
+# City
+#
+
+#
+# Red Bull Ring
+#

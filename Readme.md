@@ -24,3 +24,9 @@ Scene: Array of Scenes and Tracks to be compared
 - Football Stadium
 - Countryside
 - Night Factory
+- Karting Track
+- Blank Canvas Day
+- Blank Canvas Night
+- Birmingham NEC
+- Warehouse
+- Underground Carpark
