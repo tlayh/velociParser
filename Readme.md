@@ -13,3 +13,13 @@
 
 Users: Array of users that should be compared
 Scene: Array of Scenes and Tracks to be compared
+
+## Available Tracks to scan
+
+- River2
+- Sportshall
+- Subway
+- Hangar
+- Industrial Wasteland
+- Football Stadium
+- Countryside
