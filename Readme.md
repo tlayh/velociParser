@@ -9,6 +9,14 @@
     1. Show difference to get the next better place
 4. Find first for track and show difference to own position
 
+## Usage
+
+    go run Velociparser.go -filter=<trackfilter> -user=<additionalUser>
+    
+If you don't use commandline arguments, all tracks are parsed with the user
+that is configured in config.yaml. If the first argument is set, only some tracks are parsed.
+If the second argument is set, an additional user is parsed to compare your results to this user.
+
 ## Configuration
 
 Users: Array of users that should be compared

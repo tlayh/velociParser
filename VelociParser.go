@@ -3,8 +3,8 @@ package main
 import (
 	"./service"
 	"fmt"
-	"os"
 	"strings"
+	"flag"
 )
 
 func main() {
@@ -12,12 +12,18 @@ func main() {
 	// if there is a commandline argument, check track name for argument
 	// otherwise parse all configured boards
 
-	parseFilter := "false"
-	if len(os.Args) > 1 {
-		parseFilter = os.Args[1]
-	}
+	var parseFilter string
+	var additionalUser string
+	flag.StringVar(&parseFilter, "filter", "false", "Filter only for some tracks")
+	flag.StringVar(&additionalUser, "user", "false", "Add an additonal user to compare times")
+	flag.Parse()
 
 	config := service.ReadConfig()
+
+	if additionalUser != "false" {
+		config.Users = append(config.Users, additionalUser)
+	}
+
 	// iterate over defined scenes and trackes
 	for _, scene := range config.Scenes {
 		if parseFilter == "false" || strings.Contains(scene.Track, parseFilter) {
