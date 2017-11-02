@@ -7,8 +7,13 @@ import (
 )
 
 type Conf struct {
-	Users []string `yaml:",flow"`
+	Users []User
 	Scenes []Scene
+}
+
+type User struct {
+	Name string `yaml:"name"`
+	Compare bool `yaml:"compare"`
 }
 
 type Scene struct {

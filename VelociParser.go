@@ -21,7 +21,10 @@ func main() {
 	config := service.ReadConfig()
 
 	if additionalUser != "false" {
-		config.Users = append(config.Users, additionalUser)
+		newUser := new(service.User)
+		newUser.Name = additionalUser
+		newUser.Compare = false
+		config.Users = append(config.Users, *newUser)
 	}
 
 	// iterate over defined scenes and trackes

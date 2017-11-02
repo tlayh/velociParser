@@ -1,7 +1,8 @@
-users: [
-  "TALY"#,
-  # "WEEH"
-]
+users:
+  - name: "TALY"
+    compare: true
+  - name: "SFPV"
+    compare: false
 
 scenes:
 #

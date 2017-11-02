@@ -11,20 +11,20 @@ import (
 	"strconv"
 )
 
-func ParseLeaderBoardResponse(bodyContent string, usernames []string) {
+func ParseLeaderBoardResponse(bodyContent string, users []User) {
 	cleanString := strings.Replace(bodyContent, " ", "", -1)
-	// fmt.Print(cleanString)
-	for _, username := range usernames {
-		index := strings.LastIndex(cleanString, username)
+	for _, user := range users {
+		index := strings.LastIndex(cleanString, user.Name)
 		if index != -1 {
 			line, startIndex := findTrLine(index, cleanString)
-			// go back with the start index to find the player before the search
-			lineBefore, startIndex := findTrLine(startIndex-100, cleanString)
-			parseLineDataIntoModel(lineBefore)
+			if user.Compare {// go back with the start index to find the player before the search
+				lineBefore, _ := findTrLine(startIndex-100, cleanString)
+				parseLineDataIntoModel(lineBefore)
+			}
 			parseLineDataIntoModel(line)
 		} else {
 			c := color.New(color.FgRed)
-			c.Println("Player ", username, " not found!")
+			c.Println("Player ", user.Name, " not found!")
 		}
 	}
 }
@@ -78,9 +78,6 @@ func parseLineDataIntoModel(line string) {
 		}
 	}
 
-
-	// re := regexp.MustCompile(`\\$\\<(.*?)\\>`)
-	// fmt.Printf("%q\n", re.FindStringSubmatch(lineWithoutTr))
 }
 
 func findTrLine(index int, cleanString string) (string, int) {
