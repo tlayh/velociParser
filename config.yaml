@@ -307,11 +307,57 @@ scenes:
 #
 # Coastel
 #
+  - track: "Coastel - HDR-Cargo1.8.6"
+    url: "https://www.velocidrone.com/leaderboard/22/91/1.11"
+  - track: "Coastel - HDR-FloatersEXTREME1.9.2"
+    url: "https://www.velocidrone.com/leaderboard/22/97/1.11"
+  - track: "Coastel - HDR-GateTime1.8.6"
+    url: "https://www.velocidrone.com/leaderboard/22/93/1.11"
+  - track: "Coastel - HDR-ShipIT1.8.6"
+    url: "https://www.velocidrone.com/leaderboard/22/94/1.11"
+  - track: "Coastel - HDR-SkippinStones1.8.6"
+    url: "https://www.velocidrone.com/leaderboard/22/95/1.11"
+  - track: "Coastel - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/22/88/1.11"
+  - track: "Coastel - SFPV Containment"
+    url: "https://www.velocidrone.com/leaderboard/22/101/1.11"
+  - track: "Coastel - SFPV Ghost Ship"
+    url: "https://www.velocidrone.com/leaderboard/22/102/1.11"
+  - track: "Coastel - SFPV Holy Ship"
+    url: "https://www.velocidrone.com/leaderboard/22/103/1.11"
+  - track: "Coastel - SFPV Mill Ave"
+    url: "https://www.velocidrone.com/leaderboard/22/104/1.11"
+  - track: "Coastel - SFPV Smoke Stacks"
+    url: "https://www.velocidrone.com/leaderboard/22/105/1.11"
+  - track: "Coastel - SFPV Team Black Sheep Championship"
+    url: "https://www.velocidrone.com/leaderboard/22/137/1.11"
+  - track: "Coastel - SFPV Tower of Terror"
+    url: "https://www.velocidrone.com/leaderboard/22/106/1.11"
+  - track: "Coastel - SFPV Tower of Terror 2"
+    url: "https://www.velocidrone.com/leaderboard/22/139/1.11"
+  - track: "Coastel - SFPV VRL 4"
+    url: "https://www.velocidrone.com/leaderboard/22/124/1.11"
 
 #
 # City
 #
+  - track: "City - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/24/111/1.11"
+  - track: "City - SFPV Around the Block"
+    url: "https://www.velocidrone.com/leaderboard/24/154/1.11"
+  - track: "City - SFPV CITY 2"
+    url: "https://www.velocidrone.com/leaderboard/24/129/1.11"
+  - track: "City - SFPV Downtown"
+    url: "https://www.velocidrone.com/leaderboard/24/157/1.11"
 
 #
 # Red Bull Ring
 #
+  - track: "Red Bull Ring - HDR-RedBull-Mod1"
+    url: "https://www.velocidrone.com/leaderboard/25/151/1.11"
+  - track: "Red Bull Ring - Pylons"
+    url: "https://www.velocidrone.com/leaderboard/25/113/1.11"
+  - track: "Red Bull Ring - Redbull DR.ONE"
+    url: "https://www.velocidrone.com/leaderboard/25/114/1.11"
+  - track: "Red Bull Ring - SFPV DRONE"
+    url: "https://www.velocidrone.com/leaderboard/25/131/1.11"

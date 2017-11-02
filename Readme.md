@@ -30,3 +30,6 @@ Scene: Array of Scenes and Tracks to be compared
 - Birmingham NEC
 - Warehouse
 - Underground Carpark
+- Coastel
+- City
+- Red Bull Ring
