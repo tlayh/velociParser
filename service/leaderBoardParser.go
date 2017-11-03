@@ -9,24 +9,40 @@ import (
 	"golang.org/x/net/html"
 	"github.com/fatih/color"
 	"strconv"
+	"../models"
+	"errors"
 )
 
-func ParseLeaderBoardResponse(bodyContent string, users []User) {
+func ParseLeaderBoardResponse(bodyContent string, users []User, track Scene ) models.Result {
 	cleanString := strings.Replace(bodyContent, " ", "", -1)
+
+	var result models.Result
+	result.Track = track.Track
+
 	for _, user := range users {
 		index := strings.LastIndex(cleanString, user.Name)
 		if index != -1 {
 			line, startIndex := findTrLine(index, cleanString)
 			if user.Compare {// go back with the start index to find the player before the search
 				lineBefore, _ := findTrLine(startIndex-100, cleanString)
-				parseLineDataIntoModel(lineBefore)
+				trackResult, err := parseLineDataIntoModel(lineBefore)
+				if err == nil {
+					result.TrackResults = append(result.TrackResults, trackResult)
+				}
+
 			}
-			parseLineDataIntoModel(line)
+			trackResult, err := parseLineDataIntoModel(line)
+			if err == nil {
+				result.TrackResults = append(result.TrackResults, trackResult)
+			}
+
 		} else {
 			c := color.New(color.FgRed)
 			c.Println("Player ", user.Name, " not found!")
 		}
 	}
+
+	return result
 }
 
 /*
@@ -35,17 +51,19 @@ first td = rank
 second td = time
 third td = name
  */
-func parseLineDataIntoModel(line string) {
+func parseLineDataIntoModel(line string) (models.TrackResult, error) {
 
 	rLine := strings.NewReader(line)
 	nodes := html.NewTokenizer(rLine)
+
+	var trackResult models.TrackResult
 
 	elementCounter := 0
 	for {
 		tt := nodes.Next()
 		switch {
 			case tt == html.ErrorToken:
-				return
+				return trackResult, errors.New("ErrorToken")
 			case tt == html.StartTagToken:
 				t := nodes.Token()
 
@@ -62,21 +80,26 @@ func parseLineDataIntoModel(line string) {
 									c = color.New(color.FgRed)
 								}
 								c.Print("Rank: ", i.Data)
+								trackResult.Rank = i.Data
 								elementCounter++
 							case elementCounter == 1:
 								fmt.Print(" Time: ", i.Data)
+								trackResult.Time = i.Data
 								elementCounter++
 							case elementCounter == 2:
 								fmt.Print(" Name: ", strings.TrimSpace(i.Data))
+								trackResult.Name = i.Data
 								tt = nodes.Next()
 								elementCounter = 0
 								fmt.Println()
-								return
+								return trackResult, nil
 						}
 					}
 				}
 		}
 	}
+
+	return trackResult, errors.New("NothingFound")
 
 }
 
