@@ -54,14 +54,6 @@ func ParseRankingPage(conf Conf) {
 	// We're done! Print the results...
 	compareToConfig(conf, foundUrls)
 
-	/*
-	fmt.Println("\nFound", len(foundUrls), "unique urls:\n")
-
-	for url, _ := range foundUrls {
-		fmt.Println(" - " + url)
-	}
-	*/
-
 	close(chUrls)
 }
 
@@ -129,8 +121,6 @@ func crawl(url string, ch chan string, chFinished chan bool) {
 		}
 	}
 }
-
-
 
 func compareToConfig(conf Conf, foundUrls map[string]bool) {
 	fmt.Println("Anzahl Tracks Config:")
