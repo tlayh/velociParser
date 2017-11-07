@@ -11,7 +11,7 @@
 
 ## ToDo
 1. Beautify results
-2. Create parser to check if there are new tracks that are not tracked
+2. ~~Create parser to check if there are new tracks that are not tracked~~
 
 ## Usage
 
