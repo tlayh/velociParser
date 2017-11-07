@@ -42,8 +42,7 @@ func main() {
 	}
 
 	// print leaderboard optimized
-	fmt.Println("Leaderboard optimized")
-	fmt.Println(results)
+	// fmt.Println("Leaderboard optimized")
+	// fmt.Println(results)
 
 }
-
