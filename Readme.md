@@ -23,11 +23,13 @@ Total time for parsing:  56.648224155s
 
 ## Usage
 
-    go run Velociparser.go -filter=<trackfilter> -user=<additionalUser>
+    go run Velociparser.go -filter=<trackfilter> -user=<additionalUser> -orderBy=<orderValue>
 
 If you don't use commandline arguments, all tracks are parsed with the user
 that is configured in config.yaml. If the first argument is set, only some tracks are parsed.
 If the second argument is set, an additional user is parsed to compare your results to this user.
+
+Order value can be rank or track, but track is the default
 
 ## Validate if all tracks are in the config.yml
 
