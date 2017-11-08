@@ -20,9 +20,11 @@ func main() {
 	var parseFilter string
 	var additionalUser string
 	var validateBoards string
+	var orderBy string
 	flag.StringVar(&parseFilter, "filter", "false", "Filter only for some tracks")
 	flag.StringVar(&additionalUser, "user", "false", "Add an additonal user to compare times")
 	flag.StringVar(&validateBoards, "validate", "false", "Check if all leaderboards are in the config")
+	flag.StringVar(&orderBy, "orderBy", "track", "Order by track oder by rank. Values: track (default), rank")
 	flag.Parse()
 
 	config := service.ReadConfig()
@@ -63,10 +65,17 @@ func main() {
 		// print leaderboard optimized
 		fmt.Println("Leaderboard optimized")
 
-		// sort by Track name
-		sort.Slice(results.Results, func(i, j int) bool {
-			return results.Results[i].Track < results.Results[j].Track
-		})
+		// check for correct ordering depending on input value
+		if (orderBy == "rank") {
+			sort.Slice(results.Results, func(i, j int) bool {
+				return results.Results[i].TrackResults[0].Rank < results.Results[j].TrackResults[0].Rank
+			})
+		} else {
+			sort.Slice(results.Results, func(i, j int) bool {
+				return results.Results[i].Track < results.Results[j].Track
+			})
+		}
+
 
 		for _, res := range results.Results {
 			c := color.New(color.FgCyan)
