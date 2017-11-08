@@ -6,7 +6,7 @@ import (
 	"log"
 	"io/ioutil"
 	"golang.org/x/net/html"
-	"github.com/fatih/color"
+	//"github.com/fatih/color"
 	"strconv"
 	"../models"
 	"errors"
@@ -36,8 +36,14 @@ func ParseLeaderBoardResponse(bodyContent string, users []User, track Scene ) mo
 			}
 
 		} else {
-			c := color.New(color.FgRed)
-			c.Println("Player ", user.Name, " not found or not in Top 100 on Track: ", track.Track)
+			trackResult := models.TrackResult{}
+			trackResult.Rank = 999
+			trackResult.Time = 999
+			trackResult.Searched = true
+			trackResult.Name = user.Name
+			result.TrackResults = append(result.TrackResults, trackResult)
+			// c := color.New(color.FgRed)
+			// c.Println("Player ", user.Name, " not found or not in Top 100 on Track: ", track.Track)
 		}
 	}
 
