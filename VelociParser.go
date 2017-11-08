@@ -7,12 +7,15 @@ import (
 	"strings"
 	"flag"
 	"github.com/fatih/color"
+	"time"
+	"sort"
 )
 
 func main() {
 
 	// if there is a commandline argument, check track name for argument
 	// otherwise parse all configured boards
+	startTime := time.Now()
 
 	var parseFilter string
 	var additionalUser string
@@ -35,21 +38,36 @@ func main() {
 			config.Users = append(config.Users, *newUser)
 		}
 
+		//var results models.Results
+		chResults := make(chan models.Result)
+		chFinished := make(chan bool)
+
 		var results models.Results
 
-		// iterate over defined scenes and trackes
+		// iterate over defined scenes and trackes and register channels
 		for _, scene := range config.Scenes {
-			if parseFilter == "false" || strings.Contains(scene.Track, parseFilter) {
-				//fmt.Println("Scanning Board: ", scene.Track)
-				bodyContent := service.ReadLeaderBoard(scene.Url)
-				result := service.ParseLeaderBoardResponse(bodyContent, config.Users, scene)
+			// trigger crawling
+			go crawl(parseFilter, scene, chResults, chFinished, config.Users)
+		}
+
+		// subscribe to channels
+		for c := 0; c < len(config.Scenes); {
+			select {
+			case result := <-chResults:
 				results.Results = append(results.Results, result)
-				//fmt.Println("---------------------------")
+			case <-chFinished:
+				c++
 			}
 		}
 
 		// print leaderboard optimized
 		fmt.Println("Leaderboard optimized")
+
+		// sort by Track name
+		sort.Slice(results.Results, func(i, j int) bool {
+			return results.Results[i].Track < results.Results[j].Track
+		})
+
 		for _, res := range results.Results {
 			c := color.New(color.FgCyan)
 			c.Println(res.Track)
@@ -78,9 +96,25 @@ func main() {
 					fmt.Println()
 				}
 
-
 			}
 		}
 	}
 
+	fmt.Println("Total time for parsing: ", time.Since(startTime))
+
+}
+
+func crawl(parseFilter string, scene service.Scene, chResult chan models.Result, chFinished chan bool, users []service.User) {
+
+	defer func() {
+		// Notify that we're done after this function
+		chFinished <- true
+	}()
+
+	if parseFilter == "false" || strings.Contains(scene.Track, parseFilter) {
+		bodyContent := service.ReadLeaderBoard(scene.Url)
+		result := service.ParseLeaderBoardResponse(bodyContent, users, scene)
+
+		chResult <- result
+	}
 }

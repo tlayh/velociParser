@@ -10,8 +10,16 @@
 4. Find first for track and show difference to own position
 
 ## ToDo
-1. Beautify results
+1. Beautify results - can always be better
 2. ~~Create parser to check if there are new tracks that are not tracked~~
+3. ~~Parallel parsing~~
+4. ~~Order by track name~~
+
+### Sequencial execution of parsing all leaderboards
+Total time for parsing:  1m39.563299323s
+
+### Parallel execution of parsing all leaderboards
+Total time for parsing:  56.648224155s
 
 ## Usage
 
@@ -20,6 +28,10 @@
 If you don't use commandline arguments, all tracks are parsed with the user
 that is configured in config.yaml. If the first argument is set, only some tracks are parsed.
 If the second argument is set, an additional user is parsed to compare your results to this user.
+
+## Validate if all tracks are in the config.yml
+
+    go run Velociparser.go -validate=true
 
 ## Configuration
 
