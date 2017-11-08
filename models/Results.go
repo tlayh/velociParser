@@ -11,6 +11,7 @@ type Result struct {
 
 type TrackResult struct {
 	Name string
-	Rank string
-	Time string
+	Rank int64
+	Time float64
+	Searched bool
 }
