@@ -42,8 +42,6 @@ func ParseLeaderBoardResponse(bodyContent string, users []User, track Scene ) mo
 			trackResult.Searched = true
 			trackResult.Name = user.Name
 			result.TrackResults = append(result.TrackResults, trackResult)
-			// c := color.New(color.FgRed)
-			// c.Println("Player ", user.Name, " not found or not in Top 100 on Track: ", track.Track)
 		}
 	}
 
@@ -80,13 +78,6 @@ func parseLineDataIntoModel(line string, searched bool) (models.TrackResult, err
 						i := nodes.Token()
 						switch {
 							case elementCounter == 0:
-								/*rank, _ := strconv.ParseInt(i.Data, 10, 64)
-								c := color.New(color.FgGreen)
-								if rank > 50 {
-									c = color.New(color.FgRed)
-								}
-								c.Print("Rank: ", i.Data)
-								*/
 								trackResult.Rank, _ = strconv.ParseInt(i.Data, 10, 64)
 								elementCounter++
 							case elementCounter == 1:
@@ -94,11 +85,9 @@ func parseLineDataIntoModel(line string, searched bool) (models.TrackResult, err
 								trackResult.Time, _ = strconv.ParseFloat(i.Data, 64)
 								elementCounter++
 							case elementCounter == 2:
-								// fmt.Print(" Name: ", strings.TrimSpace(i.Data))
 								trackResult.Name = strings.TrimSpace(i.Data)
 								tt = nodes.Next()
 								elementCounter = 0
-								// fmt.Println()
 								return trackResult, nil
 						}
 					}

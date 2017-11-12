@@ -64,6 +64,7 @@ func main() {
 
 		// print leaderboard optimized
 		fmt.Println("Leaderboard optimized")
+		fmt.Println("---------------------")
 
 		// check for correct ordering depending on input value
 		if (orderBy == "rank") {
@@ -76,6 +77,11 @@ func main() {
 			})
 		}
 
+		// count tracks with rank > 50 and < 50
+		tracksGtFifty := 0
+		tracksLtFifty := 0
+		var averageRank int64
+		var trackCount int64
 
 		for _, res := range results.Results {
 			c := color.New(color.FgCyan)
@@ -89,8 +95,17 @@ func main() {
 					timeNextPlace = trackResults.Time
 				} else {
 					c := color.New(color.FgGreen)
-					if (trackResults.Rank > 50) {
+					if trackResults.Rank > config.Rank {
+						tracksGtFifty++
 						c = color.New(color.FgRed)
+					} else {
+						tracksLtFifty++
+					}
+
+					// for average rank
+					if trackResults.Rank != 999 {
+						averageRank += trackResults.Rank
+						trackCount++
 					}
 
 					c.Print("Rank: ")
@@ -107,6 +122,14 @@ func main() {
 
 			}
 		}
+
+		fmt.Println("Configured rank: ", config.Rank)
+		fmt.Println("Tracks with a ranking better than configured rank: ", tracksLtFifty)
+		fmt.Println("Tracks with a ranking worse than configured rank: ", tracksGtFifty)
+		fmt.Println("Average rank on scanned tracks: ", averageRank / trackCount)
+		fmt.Println("Total tracks with ranking: ", trackCount)
+		fmt.Println("Total tracks scanned: ", len(results.Results))
+
 	}
 
 	fmt.Println("Total time for parsing: ", time.Since(startTime))

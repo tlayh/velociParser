@@ -8,6 +8,7 @@ import (
 
 type Conf struct {
 	Users []User
+	Rank int64
 	Scenes []Scene
 }
 

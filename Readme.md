@@ -1,27 +1,28 @@
 # Small parser to compare leaderboard times from specific tracks and users
 
-## Goal
+## Why
 
-1. Find own username and time for track
-2. Find friends username and time for track
-    1. Compare to own time
-3. Find next ahead of own username
-    1. Show difference to get the next better place
-4. Find first for track and show difference to own position
-
-## ToDo
-1. Beautify results - can always be better
-2. ~~Create parser to check if there are new tracks that are not tracked~~
-3. ~~Parallel parsing~~
-4. ~~Order by track name~~
-
-### Sequencial execution of parsing all leaderboards
-Total time for parsing:  1m39.563299323s
-
-### Parallel execution of parsing all leaderboards
-Total time for parsing:  56.648224155s
+Playing https://www.velocidrone.com/ since quite some time now, to keep improving my flying skills during the winter month
+or to just learn some new tricks. To also keep practicing on the tracks where I am not as good, I created a small parser
+to parse all the tracks and show me where I am good and where I am bad. So I can keep the focus on the tracks where I am 
+not that good.
 
 ## Usage
+
+You need the go runtime installed, currently there is no release with an executable available. After that, you can set your username
+in the config.yaml file and run. If you want to add an additional user to compare against, just use the commandline parameter.
+
+Default the tool is scanning all tracks that are defined in the config.yaml file. If you want to make sure that all tracks are there,
+you can run it with the validate commandline argument to see if all tracks are configured.
+
+Default ordering of the results is by scenario. If you want all good tracks on top and the bad at bottom, use the commandline parameter
+orderBy like described below.
+
+Add the end of the parsing, you will get some statistics with your ranking.
+
+If your rank is 999 on some track, this means you are not inside the Top100 and so it is not possible to find a ranking.
+
+### Parsing leaderboard
 
     go run Velociparser.go -filter=<trackfilter> -user=<additionalUser> -orderBy=<orderValue>
 
@@ -31,13 +32,14 @@ If the second argument is set, an additional user is parsed to compare your resu
 
 Order value can be rank or track, but track is the default
 
-## Validate if all tracks are in the config.yml
+### Validate if all tracks are in the config.yml
 
     go run Velociparser.go -validate=true
 
 ## Configuration
 
 Users: Array of users that should be compared
+Rank: The rank you want to be compared against
 Scene: Array of Scenes and Tracks to be compared
 
 ## Available Tracks to scan

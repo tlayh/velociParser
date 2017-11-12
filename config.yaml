@@ -2,6 +2,8 @@ users:
   - name: "TALY"
     compare: true
 
+rank: 50
+
 scenes:
 #
 # RIVER2
