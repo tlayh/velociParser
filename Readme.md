@@ -39,8 +39,11 @@ Order value can be rank or track, but track is the default
 ## Configuration
 
 Users: Array of users that should be compared
+
 Rank: The rank you want to be compared against
+
 Scene: Array of Scenes and Tracks to be compared
+
 
 ## Available Tracks to scan
 
