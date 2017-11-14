@@ -6,7 +6,6 @@ import (
 	"log"
 	"io/ioutil"
 	"golang.org/x/net/html"
-	//"github.com/fatih/color"
 	"strconv"
 	"../models"
 	"errors"
