@@ -18,7 +18,8 @@ you can run it with the validate commandline argument to see if all tracks are c
 Default ordering of the results is by scenario. If you want all good tracks on top and the bad at bottom, use the commandline parameter
 orderBy like described below.
 
-Add the end of the parsing, you will get some statistics with your ranking.
+Add the end of the parsing, you will get some statistics with your ranking. Keep in mind, statistics currently only work for a single user
+check. Multiuser statistics don't work until now. If you scan form ore than one user, statistics might be corrupt.
 
 If your rank is 999 on some track, this means you are not inside the Top100 and so it is not possible to find a ranking.
 
