@@ -226,6 +226,9 @@ scenes:
     url: "https://www.velocidrone.com/leaderboard/14/34/1.11"
   - track: "Karting Track - Track Lap"
     url: "https://www.velocidrone.com/leaderboard/14/40/1.11"
+  - track: "Karting Track - SFPV VRL15"
+    url: "https://www.velocidrone.com/leaderboard/14/172/1.11"
+
 
 #
 # Blank Canvas Day
