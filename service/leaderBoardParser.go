@@ -9,6 +9,7 @@ import (
 	"strconv"
 	"../models"
 	"errors"
+	"os"
 )
 
 func ParseLeaderBoardResponse(bodyContent string, users []User, track Scene ) models.Result {
@@ -124,7 +125,44 @@ func findTrLine(index int, cleanString string) (string, int) {
 	return "", 0
 }
 
-func ReadLeaderBoard(url string) (string) {
+func ReadLeaderBoard(url string, track string, cache bool) (string) {
+	var bodyString string
+
+	cacheKey := `./tmp/` + strings.Replace(track, " ", "", -1)
+
+	if cache == true {
+		if _, err := os.Stat(cacheKey); !os.IsNotExist(err) {
+			fileContent, err := ioutil.ReadFile(cacheKey)
+			bodyString = string(fileContent)
+			if err != nil {
+				bodyString = fetchLeaderBoard(url)
+				writeCacheFile(bodyString, cacheKey)
+			}
+		} else {
+			bodyString = fetchLeaderBoard(url)
+			writeCacheFile(bodyString, cacheKey)
+		}
+	} else {
+		bodyString = fetchLeaderBoard(url)
+		writeCacheFile(bodyString, cacheKey)
+	}
+	return bodyString
+}
+
+func writeCacheFile(bodyString string, url string) {
+	f, err := os.Create(url)
+	if err != nil {
+		log.Println("Error creating cachefile for ", url, err)
+	}
+
+	_, err = f.WriteString(bodyString)
+	if err != nil {
+		log.Println("Error creating cachefile for ", url)
+	}
+	defer f.Close()
+}
+
+func fetchLeaderBoard(url string) string {
 	response, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)

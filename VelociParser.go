@@ -21,10 +21,12 @@ func main() {
 	var additionalUser string
 	var validateBoards string
 	var orderBy string
+	var cache bool
 	flag.StringVar(&parseFilter, "filter", "false", "Filter only for some tracks")
 	flag.StringVar(&additionalUser, "user", "false", "Add an additonal user to compare times")
 	flag.StringVar(&validateBoards, "validate", "false", "Check if all leaderboards are in the config")
 	flag.StringVar(&orderBy, "orderBy", "track", "Order by track oder by rank. Values: track (default), rank")
+	flag.BoolVar(&cache, "cache", true, "Use the cache, if the cache is valid. Disable cache with value false")
 	flag.Parse()
 
 	config := service.ReadConfig()
@@ -49,7 +51,7 @@ func main() {
 		// iterate over defined scenes and trackes and register channels
 		for _, scene := range config.Scenes {
 			// trigger crawling
-			go crawl(parseFilter, scene, chResults, chFinished, config.Users)
+			go crawl(parseFilter, scene, chResults, chFinished, config.Users, cache)
 		}
 
 		// subscribe to channels
@@ -136,7 +138,7 @@ func main() {
 
 }
 
-func crawl(parseFilter string, scene service.Scene, chResult chan models.Result, chFinished chan bool, users []service.User) {
+func crawl(parseFilter string, scene service.Scene, chResult chan models.Result, chFinished chan bool, users []service.User, cache bool) {
 
 	defer func() {
 		// Notify that we're done after this function
@@ -144,7 +146,7 @@ func crawl(parseFilter string, scene service.Scene, chResult chan models.Result,
 	}()
 
 	if parseFilter == "false" || strings.Contains(scene.Track, parseFilter) {
-		bodyContent := service.ReadLeaderBoard(scene.Url)
+		bodyContent := service.ReadLeaderBoard(scene.Url, scene.Track, cache)
 		result := service.ParseLeaderBoardResponse(bodyContent, users, scene)
 
 		chResult <- result
