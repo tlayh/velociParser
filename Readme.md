@@ -25,11 +25,14 @@ If your rank is 999 on some track, this means you are not inside the Top100 and 
 
 ### Parsing leaderboard
 
-    go run Velociparser.go -filter=<trackfilter> -user=<additionalUser> -orderBy=<orderValue>
+    go run Velociparser.go -filter=<trackfilter> -user=<additionalUser> -orderBy=<orderValue> -cache=false
 
 If you don't use commandline arguments, all tracks are parsed with the user
 that is configured in config.yaml. If the first argument is set, only some tracks are parsed.
 If the second argument is set, an additional user is parsed to compare your results to this user.
+
+The parameter cache is set to true for default. It will write some files on your disk. It will refresh the files after 10 minutes.
+If the parameter is set to false, everything is scanned again.
 
 Order value can be rank or track, but track is the default
 

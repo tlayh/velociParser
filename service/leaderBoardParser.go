@@ -10,6 +10,7 @@ import (
 	"../models"
 	"errors"
 	"os"
+	"time"
 )
 
 func ParseLeaderBoardResponse(bodyContent string, users []User, track Scene ) models.Result {
@@ -131,7 +132,7 @@ func ReadLeaderBoard(url string, track string, cache bool) (string) {
 	cacheKey := `./tmp/` + strings.Replace(track, " ", "", -1)
 
 	if cache == true {
-		if _, err := os.Stat(cacheKey); !os.IsNotExist(err) {
+		if fileInfo, err := os.Stat(cacheKey); !os.IsNotExist(err) && (time.Since(fileInfo.ModTime()).Seconds()) < 600 {
 			fileContent, err := ioutil.ReadFile(cacheKey)
 			bodyString = string(fileContent)
 			if err != nil {
