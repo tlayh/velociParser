@@ -151,16 +151,18 @@ func ReadLeaderBoard(url string, track string, cache bool) (string) {
 }
 
 func writeCacheFile(bodyString string, url string) {
-	f, err := os.Create(url)
-	if err != nil {
-		log.Println("Error creating cachefile for ", url, err)
-	}
+	if bodyString != "" {
+		f, err := os.Create(url)
+		if err != nil {
+			log.Println("Error creating cachefile for ", url, err)
+		}
 
-	_, err = f.WriteString(bodyString)
-	if err != nil {
-		log.Println("Error creating cachefile for ", url)
+		_, err = f.WriteString(bodyString)
+		if err != nil {
+			log.Println("Error creating cachefile for ", url)
+		}
+		defer f.Close()
 	}
-	defer f.Close()
 }
 
 func fetchLeaderBoard(url string) string {
@@ -168,12 +170,16 @@ func fetchLeaderBoard(url string) string {
 	if err != nil {
 		log.Fatal(err)
 	} else {
-		defer response.Body.Close()
-		bodyContent, err := ioutil.ReadAll(response.Body)
-		bodyString := string(bodyContent)
-		return bodyString
-		if err != nil {
-			log.Fatal(err)
+		if response.StatusCode != 200 {
+			println("Could not fetch leaderboard with url ", url)
+		} else {
+			defer response.Body.Close()
+			bodyContent, err := ioutil.ReadAll(response.Body)
+			if err != nil {
+				log.Fatal(err)
+			}
+			bodyString := string(bodyContent)
+			return bodyString
 		}
 	}
 	return ""
