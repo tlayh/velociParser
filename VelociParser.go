@@ -51,7 +51,7 @@ func main() {
 		// iterate over defined scenes and trackes and register channels
 		for _, scene := range config.Scenes {
 			// trigger crawling
-			go crawl(parseFilter, scene, chResults, chFinished, config.Users, cache)
+			go crawl(parseFilter, scene, chResults, chFinished, config.Users, cache, config.CacheLifeTime)
 		}
 
 		// subscribe to channels
@@ -138,7 +138,7 @@ func main() {
 
 }
 
-func crawl(parseFilter string, scene service.Scene, chResult chan models.Result, chFinished chan bool, users []service.User, cache bool) {
+func crawl(parseFilter string, scene service.Scene, chResult chan models.Result, chFinished chan bool, users []service.User, cache bool, cacheLifeTime float64) {
 
 	defer func() {
 		// Notify that we're done after this function
@@ -146,7 +146,7 @@ func crawl(parseFilter string, scene service.Scene, chResult chan models.Result,
 	}()
 
 	if parseFilter == "false" || strings.Contains(scene.Track, parseFilter) {
-		bodyContent := service.ReadLeaderBoard(scene.Url, scene.Track, cache)
+		bodyContent := service.ReadLeaderBoard(scene.Url, scene.Track, cache, cacheLifeTime)
 		result := service.ParseLeaderBoardResponse(bodyContent, users, scene)
 
 		chResult <- result

@@ -126,13 +126,13 @@ func findTrLine(index int, cleanString string) (string, int) {
 	return "", 0
 }
 
-func ReadLeaderBoard(url string, track string, cache bool) (string) {
+func ReadLeaderBoard(url string, track string, cache bool, cacheLifeTime float64) (string) {
 	var bodyString string
 
 	cacheKey := `./tmp/` + strings.Replace(track, " ", "", -1)
 
 	if cache == true {
-		if fileInfo, err := os.Stat(cacheKey); !os.IsNotExist(err) && (time.Since(fileInfo.ModTime()).Seconds()) < 600 {
+		if fileInfo, err := os.Stat(cacheKey); !os.IsNotExist(err) && (time.Since(fileInfo.ModTime()).Seconds()) < cacheLifeTime {
 			fileContent, err := ioutil.ReadFile(cacheKey)
 			bodyString = string(fileContent)
 			if err != nil {

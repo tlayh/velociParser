@@ -1,8 +1,13 @@
+# default user to search for
 users:
   - name: "TALY"
     compare: true
 
+# rank to compare against
 rank: 50
+
+# cachelifetime in seconds
+cachelifetime: 600
 
 scenes:
 #
