@@ -104,6 +104,11 @@ func main() {
 						tracksLtFifty++
 					}
 
+					// for ranks outside of range
+					if trackResults.Rank >= 999 {
+						c = color.New(color.FgMagenta)
+					}
+
 					// for average rank
 					if trackResults.Rank != 999 {
 						averageRank += trackResults.Rank
