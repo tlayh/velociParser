@@ -133,13 +133,13 @@ func main() {
 		fmt.Println("Configured rank: ", config.Rank)
 		fmt.Println("Tracks with a ranking better than configured rank: ", tracksLtFifty)
 		fmt.Println("Tracks with a ranking worse than configured rank: ", tracksGtFifty)
-		fmt.Println("Average rank on scanned tracks: ", averageRank / trackCount)
+		fmt.Println("Average rank on scanned tracks: ", float64(averageRank*100 / trackCount) / 100)
 		fmt.Println("Total tracks with ranking: ", trackCount)
 		fmt.Println("Total tracks scanned: ", len(results.Results))
 
 	}
 
-	fmt.Println("Total time for parsing: ", time.Since(startTime))
+	fmt.Println("Total time for parsing: ", time.Since(startTime).Seconds(), "Seconds")
 
 }
 
