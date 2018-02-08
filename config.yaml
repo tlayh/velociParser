@@ -235,7 +235,14 @@ scenes:
     url: "https://www.velocidrone.com/leaderboard/14/40/1.11"
   - track: "Karting Track - SFPV VRL15"
     url: "https://www.velocidrone.com/leaderboard/14/172/1.11"
-
+  - track: "Karting Track - American Canyon Advanced"
+    url: "https://www.velocidrone.com/leaderboard/14/178/1.11"
+  - track: "Karting Track - American Canyon Beginner"
+    url: "https://www.velocidrone.com/leaderboard/14/176/1.11"
+  - track: "Karting Track - American Canyon Intermediate"
+    url: "https://www.velocidrone.com/leaderboard/14/177/1.11"
+  - track: "Karting Track - American Canyon Insane"
+    url: "https://www.velocidrone.com/leaderboard/14/179/1.11"
 
 #
 # Blank Canvas Day
@@ -278,6 +285,12 @@ scenes:
     url: "https://www.velocidrone.com/leaderboard/16/171/1.11"
   - track: "Blank Canvas Day - VRL17"
     url: "https://www.velocidrone.com/leaderboard/16/174/1.11"
+  - track: "Blank Canvas Day - SFPV VRL 19"
+    url: "https://www.velocidrone.com/leaderboard/16/180/1.11"
+  - track: "Blank Canvas Day - SFPV VRL 20"
+    url: "https://www.velocidrone.com/leaderboard/16/181/1.11"
+  - track: "Blank Canvas Day - Uvify Tournament Track"
+    url: "https://www.velocidrone.com/leaderboard/16/175/1.11"
 
 #
 # Blank Canvas Night
