@@ -4,7 +4,7 @@
 
 Playing https://www.velocidrone.com/ since quite some time now, to keep improving my flying skills during the winter month
 or to just learn some new tricks. To also keep practicing on the tracks where I am not as good, I created a small parser
-to parse all the tracks and show me where I am good and where I am bad. So I can keep the focus on the tracks where I am 
+to parse all the tracks and show me where I am good and where I am bad. So I can keep the focus on the tracks where I am
 not that good.
 
 ## Usage
@@ -34,7 +34,11 @@ If the second argument is set, an additional user is parsed to compare your resu
 The parameter cache is set to true for default. It will write some files on your disk. It will refresh the files after 10 minutes.
 If the parameter is set to false, everything is scanned again.
 
-Order value can be rank or track, but track is the default
+Order value can be rank or track, but rank is the default
+
+Another example, scannig the tracks for all VRL Tracks, oder by track
+
+    go run VelociParser.go -filter=VRL -orderBy=track
 
 ### Validate if all tracks are in the config.yml
 

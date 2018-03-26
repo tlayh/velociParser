@@ -25,7 +25,7 @@ func main() {
 	flag.StringVar(&parseFilter, "filter", "false", "Filter only for some tracks")
 	flag.StringVar(&additionalUser, "user", "false", "Add an additonal user to compare times")
 	flag.StringVar(&validateBoards, "validate", "false", "Check if all leaderboards are in the config")
-	flag.StringVar(&orderBy, "orderBy", "track", "Order by track oder by rank. Values: track (default), rank")
+	flag.StringVar(&orderBy, "orderBy", "rank", "Order by track oder by rank. Values: track , rank (default)")
 	flag.BoolVar(&cache, "cache", true, "Use the cache, if the cache is valid. Disable cache with value false")
 	flag.Parse()
 
