@@ -304,6 +304,8 @@ scenes:
     url: "https://www.velocidrone.com/leaderboard/16/190/1.11"
   - track: "Blank Canvas Day - RollerCoasterRace1"
     url: "https://www.velocidrone.com/leaderboard/16/197/1.11"
+  - track: "Blank Canvas Day - WoodenCastle"
+    url: "https://www.velocidrone.com/leaderboard/16/200/1.11"
 
 #
 # Blank Canvas Night
@@ -390,6 +392,8 @@ scenes:
     url: "https://www.velocidrone.com/leaderboard/22/124/1.11"
   - track: "Coastel - SFPV VRL 25"
     url: "https://www.velocidrone.com/leaderboard/22/198/1.11"
+  - track: "Coastel - PalmliXHarbourRun"
+    url: "https://www.velocidrone.com/leaderboard/22/199/1.11"
 
 #
 # City
