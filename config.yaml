@@ -210,6 +210,8 @@ scenes:
     url: "https://www.velocidrone.com/leaderboard/12/50/1.11"
   - track: "Countryside - VRL9 Relay Track"
     url: "https://www.velocidrone.com/leaderboard/12/165/1.11"
+  - track: "Countryside - SFPV VRL26"
+    url: "https://www.velocidrone.com/leaderboard/12/201/1.11"
 
 #
 # Night Factory
