@@ -10,23 +10,24 @@ import (
 func ParseRankingPage(conf Conf) {
 	foundUrls := make(map[string]bool)
 	seedUrls := [...]string{
-		"https://www.velocidrone.com/leaderboard_by_version/15/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/17/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/22/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/12/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/14/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/21/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/19/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/25/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/3/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/7/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/8/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/13/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/16/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/18/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/20/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/23/1.11",
-		"https://www.velocidrone.com/leaderboard_by_version/24/1.11"}
+		"https://www.velocidrone.com/leaderboard_by_version/15/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/17/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/22/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/12/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/14/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/21/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/19/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/25/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/3/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/7/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/8/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/13/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/16/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/18/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/20/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/23/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/24/1.12",
+		"https://www.velocidrone.com/leaderboard_by_version/26/1.12"}
 
 	// Channels
 	chUrls := make(chan string)
@@ -42,7 +43,7 @@ func ParseRankingPage(conf Conf) {
 		select {
 		case url := <-chUrls:
 			if strings.Contains(url, "leaderboard") &&
-				strings.Contains(url, "1.11") &&
+				strings.Contains(url, "1.12") &&
 				!strings.Contains(url, "leaderboard_by_version"){
 				foundUrls[url] = true
 			}
