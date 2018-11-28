@@ -9,8 +9,10 @@ import (
 type Conf struct {
 	Users []User
 	Rank int64
+  Version string
 	CacheLifeTime float64
 	Scenes []Scene
+	AvailableScenes []string
 }
 
 type User struct {

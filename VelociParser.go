@@ -20,12 +20,14 @@ func main() {
 	var parseFilter string
 	var additionalUser string
 	var validateBoards string
+  var printScenes string
 	var orderBy string
 	var cache bool
 	flag.StringVar(&parseFilter, "filter", "false", "Filter only for some tracks")
 	flag.StringVar(&additionalUser, "user", "false", "Add an additonal user to compare times")
 	flag.StringVar(&validateBoards, "validate", "false", "Check if all leaderboards are in the config")
 	flag.StringVar(&orderBy, "orderBy", "rank", "Order by track oder by rank. Values: track , rank (default)")
+  flag.StringVar(&printScenes, "scenes", "false", "Display a list of scenes")
 	flag.BoolVar(&cache, "cache", true, "Use the cache, if the cache is valid. Disable cache with value false")
 	flag.Parse()
 
@@ -34,7 +36,15 @@ func main() {
 	// validate boards or default, parse leaderboard rankings
 	if validateBoards == "true" {
 		service.ParseRankingPage(config)
-	} else {
+    } else if printScenes == "true" {
+			fmt.Println(config)
+
+        fmt.Println("Available scenes:", len(config.AvailableScenes))
+				fmt.Println("---------------------")
+        for _, scene := range config.AvailableScenes {
+            fmt.Println(scene)
+        }
+    } else {
 		if additionalUser != "false" {
 			newUser := new(service.User)
 			newUser.Name = additionalUser
@@ -51,7 +61,7 @@ func main() {
 		// iterate over defined scenes and trackes and register channels
 		for _, scene := range config.Scenes {
 			// trigger crawling
-			go crawl(parseFilter, scene, chResults, chFinished, config.Users, cache, config.CacheLifeTime)
+			go crawl(parseFilter, scene, chResults, chFinished, config.Users, cache, config.CacheLifeTime, config.Version)
 		}
 
 		// subscribe to channels
@@ -143,7 +153,7 @@ func main() {
 
 }
 
-func crawl(parseFilter string, scene service.Scene, chResult chan models.Result, chFinished chan bool, users []service.User, cache bool, cacheLifeTime float64) {
+func crawl(parseFilter string, scene service.Scene, chResult chan models.Result, chFinished chan bool, users []service.User, cache bool, cacheLifeTime float64, version string) {
 
 	defer func() {
 		// Notify that we're done after this function
@@ -151,7 +161,7 @@ func crawl(parseFilter string, scene service.Scene, chResult chan models.Result,
 	}()
 
 	if parseFilter == "false" || strings.Contains(scene.Track, parseFilter) {
-		bodyContent := service.ReadLeaderBoard(scene.Url, scene.Track, cache, cacheLifeTime)
+		bodyContent := service.ReadLeaderBoard(scene.Url + version, scene.Track, cache, cacheLifeTime)
 		result := service.ParseLeaderBoardResponse(bodyContent, users, scene)
 
 		chResult <- result
