@@ -27,7 +27,7 @@ func main() {
 	flag.StringVar(&additionalUser, "user", "false", "Add an additonal user to compare times")
 	flag.StringVar(&validateBoards, "validate", "false", "Check if all leaderboards are in the config")
 	flag.StringVar(&orderBy, "orderBy", "rank", "Order by track oder by rank. Values: track , rank (default)")
-  flag.StringVar(&printScenes, "scenes", "false", "Display a list of scenes")
+    flag.StringVar(&printScenes, "scenes", "false", "Display a list of scenes")
 	flag.BoolVar(&cache, "cache", true, "Use the cache, if the cache is valid. Disable cache with value false")
 	flag.Parse()
 
@@ -37,8 +37,6 @@ func main() {
 	if validateBoards == "true" {
 		service.ParseRankingPage(config)
     } else if printScenes == "true" {
-			fmt.Println(config)
-
         fmt.Println("Available scenes:", len(config.AvailableScenes))
 				fmt.Println("---------------------")
         for _, scene := range config.AvailableScenes {
